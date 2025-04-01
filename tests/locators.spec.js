@@ -12,7 +12,7 @@ test("Playwright Locators", async ({page})=>{
 
 });
 
-test("Successful Login", async ({page})=>{
+test.only("Successful Login", async ({page})=>{
 
     await page.goto("https://rahulshettyacademy.com/loginpagePractise");
     await page.locator("#username").fill("rahulshettyacademy");
@@ -20,7 +20,11 @@ test("Successful Login", async ({page})=>{
     await page.locator("#signInBtn").click();
     await expect(page).toHaveTitle("ProtoCommerce");
     console.log(await page.title())
-    console.log(await page.locator("div h4.card-title a").first().textContent());
+    // Select the first elemente on a list
+    const cardTitles = page.locator("div h4.card-title a");
+   // console.log(await cardTitles.first().textContent());
+    //await cardTitles.nth(0).textContent();
+    console.log(await cardTitles.allTextContents());
 
 });
 
