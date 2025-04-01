@@ -20,6 +20,7 @@ test("Successful Login", async ({page})=>{
     await page.locator("#signInBtn").click();
     await expect(page).toHaveTitle("ProtoCommerce");
     console.log(await page.title())
+    console.log(await page.locator("div h4.card-title a").first().textContent());
 
 });
 
