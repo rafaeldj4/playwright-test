@@ -12,7 +12,7 @@ test("Playwright Locators", async ({page})=>{
 
 });
 
-test.only("Successful Login", async ({page})=>{
+test("Successful Login", async ({page})=>{
 
     await page.goto("https://rahulshettyacademy.com/loginpagePractise");
     await page.locator("#username").fill("rahulshettyacademy");

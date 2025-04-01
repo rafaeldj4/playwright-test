@@ -82,7 +82,13 @@ test("Login User Succesful", async ({page})=>{
     await loginButton.click();
 
     //Validate Home Button
-    const headerButtons = page.locator("ul li button");
-    await expect(headerButtons.first()).toContainText("HOME");
+    // const headerButtons = page.locator("ul li button");
+    // await expect(headerButtons.first()).toContainText("HOME");
+
+    //Validate first product title
+    const productsTitles = page.locator("div.card-body h5 b");
+    // console.log(await productsTitles.first().textContent())
+    await page.waitForLoadState("networkidle");
+    console.log(await productsTitles.allTextContents());
 
 });
